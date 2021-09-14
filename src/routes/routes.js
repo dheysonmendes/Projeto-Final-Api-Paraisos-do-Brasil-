@@ -1,6 +1,6 @@
 const routes = require("express").Router();
 
-const LugarController = require("../controllers/LugaresController");
+const LugarController = require("../controllers/LugaresControllers");
 const LugarMiddleware = require("../middlewares/LugarMiddlewares");
 
 routes.get("/lugares", LugarController.getAll);

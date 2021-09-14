@@ -2,11 +2,9 @@ const Lugar = require("../models/Lugar");
 
 const getAll = async (req, res) => {
   try {
-    const lugares = await Lugar.find(); 
+    const lugares = await Lugar.find();
     if (lugares.length === 0)
-      return res
-        .status(404)
-        .send({ message: "Não existem lugares salvos!" });
+      return res.status(404).send({ message: "Não existem lugares salvos!" });
     return res.send({ lugares });
   } catch (err) {
     res.status(500).send({ error: err.message });
@@ -49,8 +47,8 @@ const create = async (req, res) => {
     await novoLugar.save();
     return res
       .status(201)
-      .send({ message: "Lugar salvo com sucesso", novolugar });
-  } catch (err) {
+      .send({ message: "Lugar salvo com sucesso", novoLugar });
+  } catch (err) {    
     res.status(500).send({ error: err.message });
   }
 };
@@ -72,7 +70,7 @@ const update = async (req, res) => {
 
   try {
     await res.lugar.save();
-    res.send({ message: "Lugar salvo com sucesso!" });
+    res.send({ message: "Lugar alterado com sucesso!" });
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
@@ -110,9 +108,9 @@ const filterAll = async (req, res) => {
 
   try {
     const lugares = await Lugar.find({
-      nome: { $regex: `${nome}`, $options: 'i' },
-      estado: { $regex: `${estado}`, $options: 'i'},
-      descricao: { $regex: `${descricao}`, $options: 'i'},
+      nome: { $regex: `${nome}`, $options: "i" },
+      estado: { $regex: `${estado}`, $options: "i" },
+      descricao: { $regex: `${descricao}`, $options: "i" },
     });
 
     if (lugares.length === 0)
