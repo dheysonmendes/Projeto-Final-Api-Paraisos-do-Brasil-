@@ -23,4 +23,5 @@ routes.delete(
 routes.get("/filterByName", LugarController.filterByName);
 routes.get("/filterAll", LugarController.filterAll);
 
+
 module.exports = routes;
