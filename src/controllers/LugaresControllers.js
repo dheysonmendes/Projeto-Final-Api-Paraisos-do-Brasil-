@@ -4,7 +4,7 @@ const getAll = async (req, res) => {
   try {
     const lugares = await Lugar.find();
     if (lugares.length === 0)
-      return res.status(404).send({ message: "Não existem lugares salvos!" });
+      return res.status(404).send({ message: "There are no saved places!" });
     return res.send({ lugares });
   } catch (err) {
     res.status(500).send({ error: err.message });
@@ -17,7 +17,7 @@ const getById = async (req, res) => {
   try {
     const lugar = await Lugar.findById(id);
     if (!lugar) {
-      res.status(404).json({ message: "Lugar não localizado" });
+      res.status(404).json({ message: "Place not found" });
       return;
     }
     return res.send({ lugar });
@@ -31,7 +31,7 @@ const create = async (req, res) => {
 
   if (!nome || !estado || !descricao || !imagem) {
     res.status(400).send({
-      message: "Você não informou todos os dados para cadastro!",
+      message: "You did not enter all the data for registration!",
     });
     return;
   }
@@ -47,7 +47,7 @@ const create = async (req, res) => {
     await novoLugar.save();
     return res
       .status(201)
-      .send({ message: "Lugar salvo com sucesso", novoLugar });
+      .send({ message: "Place saved successfully", novoLugar });
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
@@ -58,7 +58,7 @@ const update = async (req, res) => {
 
   if (!nome || !estado || !descricao || !imagem) {
     res.status(400).send({
-      message: "Você não informou todos os dados para cadastro",
+      message: "You did not enter all the data for registration!",
     });
     return;
   }
@@ -70,7 +70,7 @@ const update = async (req, res) => {
 
   try {
     await res.lugar.save();
-    res.send({ message: "Lugar alterado com sucesso!" });
+    res.send({ message: "Successfully changed place!" });
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
@@ -79,7 +79,7 @@ const update = async (req, res) => {
 const del = async (req, res) => {
   try {
     await res.lugar.remove();
-    return res.send({ message: "Lugar excluido com sucesso!" });
+    return res.send({ message: "Place deleted successfully!" });
   } catch (err) {
     return res.status(500).send({ erro: err.message });
   }
@@ -88,7 +88,7 @@ const del = async (req, res) => {
 const filterByName = async (req, res) => {
   const nome = req.query.nome;
   if (!nome) {
-    res.status(400).send({ erro: "Parametro não informado" });
+    res.status(400).send({ erro: "Parameter not informed!" });
     return;
   }
   try {
@@ -114,7 +114,7 @@ const filterAll = async (req, res) => {
     });
 
     if (lugares.length === 0)
-      return res.status(404).send({ erro: "Lugar não localizado!" });
+      return res.status(404).send({ erro: "Place not found!" });
 
     return res.send({ lugares });
   } catch (err) {

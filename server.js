@@ -15,5 +15,5 @@ app.options("*", cors());
 app.use(routes);
 
 app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
+  console.log(`Server running on http://localhost:${port}`);
 });
