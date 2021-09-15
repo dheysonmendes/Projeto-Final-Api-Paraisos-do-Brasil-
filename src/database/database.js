@@ -8,7 +8,7 @@ const connectToDb = () => {
 
   const db = mongoose.connection;
   db.on("error", () => console.error());
-  db.once("open", () => console.info("Conectado ao banco de dados!"));
+  db.once("open", () => console.info("Connected to the database!"));
 
 };
 

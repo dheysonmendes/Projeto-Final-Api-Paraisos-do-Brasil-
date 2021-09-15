@@ -48,7 +48,7 @@ const create = async (req, res) => {
     return res
       .status(201)
       .send({ message: "Lugar salvo com sucesso", novoLugar });
-  } catch (err) {    
+  } catch (err) {
     res.status(500).send({ error: err.message });
   }
 };
@@ -93,7 +93,7 @@ const filterByName = async (req, res) => {
   }
   try {
     const lugares = await Lugar.find({ nome: { $regex: `${nome}` } });
-    return res.send({ lugares });
+    return res.send({ lugar });
   } catch (err) {
     return res.status(500).send({ error: err.message });
   }
