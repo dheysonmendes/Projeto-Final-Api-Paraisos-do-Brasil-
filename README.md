@@ -30,10 +30,9 @@ Você pode utiliza a ferramenta:
 * Thunder Client (plugin no vsCode)
 
 Exemplos de URLs: 
-* Essa é a URL de teste padrão: http://localhost:3000/lugares
-* Para buscar por ID, Editar ou Apagar, insira o ID na URL: http://localhost:3000/lugares/idDoLugarAqui
-* Para fazer uma busca com query string, esse é um exemplo de URL: http://localhost:3000/lugares/filter?Chapada dos Veadeiros
-
+* Essa é a URL para buscar todos os lugares: http://localhost:3000/lugares
+* Para buscar por ID, Editar ou Apagar, insira o ID na URL: http://localhost:3000/lugares/613ffc6e63a215c04f09952d
+* Para fazer uma busca com query string, esse é um exemplo de URL: http://localhost:3000/filterByName?nome=Chapada dos Veadeiros
 
 
 ## Para testar os end-points

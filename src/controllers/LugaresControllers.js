@@ -92,8 +92,8 @@ const filterByName = async (req, res) => {
     return;
   }
   try {
-    const lugares = await Lugar.find({ nome: { $regex: `${nome}` } });
-    return res.send({ lugar });
+    const lugares = await Lugar.find({ nome: { $regex: `${nome}`, $options: "i" } });
+    return res.send({ lugares });
   } catch (err) {
     return res.status(500).send({ error: err.message });
   }
